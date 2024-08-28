@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 
 const TitleCards = ({ title, category })=> {
+console.log(category,'category is showing');
 
     const cardsRef = useRef(null);
     const [apiData, setApiData] = useState([])
