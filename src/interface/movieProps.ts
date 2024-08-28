@@ -8,5 +8,6 @@ interface Movie {
 export interface MovieProps {
     title: string;
     movies: Movie[];
-    moviesS: Movie[]
+    moviesS: Movie[];
+    trending: Movie[];
 }
