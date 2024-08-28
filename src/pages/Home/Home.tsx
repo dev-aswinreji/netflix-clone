@@ -24,14 +24,14 @@ const Home = () =>{
                         <img src={info_icon} alt="" /> More Info
                     </button>
                 </div>
-                <TitleCards />
+                <TitleCards title={""} category={""}/>
             </div>
         </div>
             <div className="more-cards">
-                <TitleCards/>
-                <TitleCards/>
-                <TitleCards/>
-                <TitleCards/>
+                <TitleCards title={"Blockbuster Movies"}/>
+                <TitleCards title={"Only on Netflix"}/>
+                <TitleCards title={"Upcoming"}/>
+                <TitleCards title={"Top pics for you"}/>
             </div>
         </div>
     )
