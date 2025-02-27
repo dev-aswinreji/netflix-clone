@@ -12,7 +12,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const user_auth = async (event: Event) => {
+    const user_auth = async (event: any) => {
         event.preventDefault()
         setLoading(true)
         if (signState === 'Sign In') {

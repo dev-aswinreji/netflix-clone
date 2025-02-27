@@ -4,10 +4,10 @@ import './TitleCards.css'
 import { useEffect, useRef, useState } from 'react'
 
 
-const TitleCards = ({ title, category })=> {
-console.log(category,'category is showing');
+const TitleCards = ({ title, category }: { title: string, category: string }) => {
+    console.log(category, 'category is showing');
 
-    const cardsRef = useRef(null);
+    const cardsRef: any = useRef();
     const [apiData, setApiData] = useState([])
     const options = {
         method: 'GET',
@@ -17,18 +17,18 @@ console.log(category,'category is showing');
         }
     };
 
-    const handleWheel = (event: Event) => {
+    const handleWheel = (event: any) => {
 
         event.preventDefault;
         cardsRef.current.scrollLeft += event.deltaY;
     }
     useEffect(() => {
         fetch(
-            `https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`,options 
-        
+            `https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options
+
         )
             .then((response: Response) => response.json())
-            .then((response: Response) => setApiData(response.results))
+            .then((response: any) => setApiData(response.results))
             .catch((err) => console.error(err)
             )
         cardsRef.current.addEventListener('wheel', handleWheel);
@@ -37,7 +37,7 @@ console.log(category,'category is showing');
         <div className="title-cards">
             <h2>{title ? title : "Popular on Netflix"}</h2>
             <div className="card-list" ref={cardsRef}>
-                {apiData.map((card, index) => {
+                {apiData.map((card: any, index: number) => {
                     return <Link to={`/player/${card.id}`} className="card" key={index}>
                         <img src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} alt="" />
 

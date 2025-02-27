@@ -23,7 +23,7 @@ export const auth = getAuth(app)
 
 const db = getFirestore(app)
 
-export const signup = async (name, email, password) => {
+export const signup = async (name:any, email:any, password:any) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
         const userDetails = res.user;
@@ -33,16 +33,16 @@ export const signup = async (name, email, password) => {
             authProvider: "local",
             email,
         });
-    } catch (error) {
-        console.error(error);
+    } catch (error:any) {
+        console.log(error);
         toast.error(error.code.split('/')[1].split('-').join(" "))
     }
 }
 
-export const login = async (email, password) => {
+export const login = async (email:any, password:any) => {
     try {
         await signInWithEmailAndPassword(auth, email, password)
-    } catch (error) {
+    } catch (error:any) {
         console.error(error);
         toast.error(error.code.split('/')[1].split('-').join(" "))
 

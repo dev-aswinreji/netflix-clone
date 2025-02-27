@@ -10,7 +10,7 @@ import { logout } from '../../firebase'
 
 const Navbar = () =>{
 
-    const navRef = useRef(null);
+    const navRef:any = useRef(null);
 
     useEffect(()=>{
         window.addEventListener('scroll', ()=>{
